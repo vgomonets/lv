@@ -46,9 +46,7 @@
                                 {!! link_to('contact/create', trans('front/site.contact')) !!}
                             </li>
                         @endif
-                        <li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
-                            {!! link_to('articles', trans('front/site.blog')) !!}
-                        </li>
+
                         @if(Request::is('auth/register'))
                             <li class="active">
                                 {!! link_to('auth/register', trans('front/site.register')) !!}
@@ -77,7 +75,11 @@
                                     {!! Form::open(['url' => '/logout', 'id' => 'logout-form']) !!}{!! Form::close() !!}
                                 </li>
                             @endif
-                        @endif
+                                <li {!! classActivePath('shop') !!}>
+                                    {!! link_to('shop', trans('shop')) !!}
+                                </li>
+                            @endif
+
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="32" height="32" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" />&nbsp; <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -107,7 +109,7 @@
 
     <footer>
         @yield('footer')
-        <p class="text-center"><small>Copyright &copy; Momo</small></p>
+        <p class="text-center"><small>Gomonets &copy; Viktor</small></p>
     </footer>
         
     {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js') !!}

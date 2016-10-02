@@ -3,6 +3,11 @@
 // Home
 Route::get('/', 'HomeController')->name('home');
 
+// Shop;
+Route::get('shop', 'ShopController@index');
+Route::get('shop/back', 'ShopController@back');
+Route::resource('shop', 'ShopController', ['except' => 'back']);
+
 // Language
 Route::get('language/{lang}', 'LanguageController')
     ->where('lang', implode('|', config('app.languages')));
